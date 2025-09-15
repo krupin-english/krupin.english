@@ -1,0 +1,40 @@
+{
+  "default": {
+    "title": "KruPin English — เรียนภาษาอังกฤษอย่างมั่นใจ",
+    "description": "คอร์สอังกฤษใช้งานได้จริง เน้นสื่อสาร ไม่ใช้ฟอร์ม ลงทะเบียน — ทัก LINE ได้เลย",
+    "url": "",
+    "image": "assets/img/cover.png"
+  },
+  "index.html": {
+    "title": "หน้าแรก — KruPin English",
+    "description": "เริ่มต้นพูดอังกฤษอย่างมั่นใจ กับคอร์สสั้น กระชับ ใช้ได้จริง"
+  },
+  "courses.html": {
+    "title": "คอร์สเรียน — KruPin English",
+    "description": "เลือกคอร์สภาษาอังกฤษที่เหมาะกับคุณ"
+  },
+  "course.html": {
+    "title": "รายละเอียดคอร์ส — KruPin English",
+    "description": "ดูเนื้อหา ราคา และสิทธิ์เข้าถึง"
+  },
+  "shop.html": {
+    "title": "ร้านค้า — KruPin English",
+    "description": "อุปกรณ์และบริการเสริมสำหรับการเรียน"
+  },
+  "article.html": {
+    "title": "บทความ — KruPin English",
+    "description": "เคล็ดลับภาษาอังกฤษและการฝึกฝน"
+  },
+  "about.html": {
+    "title": "เกี่ยวกับเรา — KruPin English",
+    "description": "รู้จักเราให้มากขึ้น"
+  },
+  "contact.html": {
+    "title": "ติดต่อ — KruPin English",
+    "description": "ทัก LINE เพื่อเริ่มต้น"
+  },
+  "admin.html": {
+    "title": "หลังบ้าน — KruPin English",
+    "description": "จัดการคอร์สและสิทธิ์เข้าถึง"
+  }
+}
