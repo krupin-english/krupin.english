@@ -11,19 +11,12 @@
   --radius:16px;
   --shadow-soft: 0 2px 0 rgba(17,24,39,.02), 0 10px 26px rgba(17,24,39,.06);
 }
-
 @media (prefers-color-scheme: dark){
   :root{
-    --bg:#0b0d11;
-    --surface:#0f1218;
-    --ink:#e5e7eb;
-    --muted:#9ca3af;
-    --accent:#f59e0b;
-    --stroke:#1b1f29;
+    --bg:#0b0d11; --surface:#0f1218; --ink:#e5e7eb; --muted:#9ca3af; --accent:#f59e0b; --stroke:#1b1f29;
     --shadow-soft: 0 1px 0 rgba(255,255,255,.02), 0 10px 26px rgba(0,0,0,.45);
   }
 }
-/* Force dark or light with body.theme-dark / body.theme-light */
 body.theme-dark{
   --bg:#0b0d11; --surface:#0f1218; --ink:#e5e7eb; --muted:#9ca3af; --accent:#f59e0b; --stroke:#1b1f29;
 }
@@ -37,7 +30,7 @@ body{font-family:'Kanit','Noto Sans Thai',system-ui,-apple-system,Segoe UI,Robot
 a{color:inherit;text-decoration:none}
 a:hover{opacity:.9}
 
-/* Grid background (very subtle) */
+/* Grid background */
 .bg-grid{
   background-image:
     linear-gradient(to bottom, rgba(17,24,39,.04) 1px, transparent 1px),
@@ -45,11 +38,9 @@ a:hover{opacity:.9}
   background-size: 32px 32px;
 }
 
-/* Navbar glass */
 .navbar{backdrop-filter:saturate(160%) blur(12px); background:rgba(255,255,255,.75) !important; box-shadow: var(--shadow-soft); border-bottom:1px solid var(--stroke)}
 body.theme-dark .navbar{background:rgba(15,18,24,.65) !important}
 
-/* Buttons */
 .btn{border-radius:999px !important}
 .btn-brand{background:var(--ink); color:#fff; border:1px solid var(--ink)}
 .btn-brand:hover{filter:brightness(.92)}
@@ -75,33 +66,32 @@ body.theme-dark .kicker{background:#0f1218; color:#c7b79a; border-color:#2a2f3b}
 .orb-2{right:-160px; top:-100px; background: radial-gradient(circle at 70% 30%, #ffe1a8, transparent 60%)}
 .hero > *{position:relative; z-index:1}
 
-/* Cards */
 .card{border:1px solid var(--stroke); border-radius: var(--radius); box-shadow:none; background:var(--surface)}
 .card.hover{transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease}
 .card.hover:hover{transform:translateY(-4px); box-shadow: var(--shadow-soft); border-color:color-mix(in oklab, var(--stroke) 60%, var(--ink) 10%)}
 
-/* Images */
 img{border-radius: calc(var(--radius) - 4px)}
-
-/* Sections */
 .section{margin: clamp(2rem, 6vw, 4rem) 0}
 
-/* Scroll progress */
 #scrollProgress{position:fixed; left:0; top:0; height:2px; background:linear-gradient(90deg, var(--ink), var(--accent)); z-index:2000; width:0}
 
-/* Reveal */
 @media (prefers-reduced-motion: no-preference){
   [data-reveal]{opacity:0; transform: translateY(8px); transition: .55s ease}
   .revealed{opacity:1 !important; transform:none !important}
 }
 
-/* Chips filter */
+/* Chips + search */
 .chips{display:flex; gap:.5rem; flex-wrap:wrap}
 .chip{border:1px solid var(--stroke); padding:.45rem .9rem; border-radius:999px; cursor:pointer; user-select:none; font-weight:600; color:#5b5b5b; background:var(--surface)}
 .chip.active{border-color:var(--ink); color:var(--ink)}
+#courseSearch, #shopSearch{border-radius:999px; padding:.6rem 1rem; border:1px solid var(--stroke); background:var(--surface); color:var(--ink)}
 
-/* Search */
-#courseSearch{border-radius:999px; padding:.6rem 1rem; border:1px solid var(--stroke); background:var(--surface); color:var(--ink)}
+.stats{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem}
+@media(min-width:768px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.stat{border:1px solid var(--stroke); border-radius:14px; padding:1rem; background:var(--surface); text-align:center}
+.stat .num{font-size: clamp(1.4rem, 2.5vw, 2.2rem); font-weight:700}
 
-/* Footer */
+.testi{display:flex; gap:1rem; overflow:auto; scroll-snap-type:x mandatory; padding-bottom:.5rem}
+.testi .item{scroll-snap-align:start; min-width: 280px; flex: 0 0 280px; border:1px solid var(--stroke); border-radius:14px; padding:1rem; background:var(--surface)}
+
 footer{color:var(--muted)}
