@@ -1,6 +1,6 @@
 
-/* Bootstrap overrides for minimal look */
+/* Overrides */
 .nav-link{color:#374151 !important}
-.nav-link:hover{color:#111827 !important}
+.nav-link:hover{color:var(--ink) !important}
 .dropdown-menu{border-radius:12px;border:1px solid var(--stroke);box-shadow:var(--shadow-soft)}
 table.table{--bs-table-bg:transparent; --bs-table-striped-bg:rgba(0,0,0,.015); border-color:var(--stroke)}
