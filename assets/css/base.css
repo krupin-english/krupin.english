@@ -1,56 +1,80 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&family=Noto+Sans+Thai:wght@300;400;600&display=swap');
 
+/* Tokens */
 :root{
-  --bg:#faf6ef;
-  --card:#ffffff;
-  --brand:#f59e0b;
-  --brand-600:#d97706;
-  --text:#1f2937;
+  --bg:#faf8f3;
+  --surface:#ffffff;
+  --ink:#111827;
   --muted:#6b7280;
-  --ring:#fde68a;
-  --shadow: 0 16px 40px rgba(0,0,0,.08);
+  --brand:#111827;       /* minimal: ink as brand by default */
+  --brand-2:#f59e0b;     /* cream accent */
+  --stroke:#ece6db;
+  --shadow-soft: 0 2px 0 rgba(17,24,39,.02), 0 12px 30px rgba(17,24,39,.06);
+  --radius: 16px;
 }
 
 *{box-sizing:border-box}
-html,body{background:var(--bg);color:var(--text)}
-body{font-family:'Kanit','Noto Sans Thai',system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
-a{color:var(--brand);text-decoration:none}
-a:hover{color:var(--brand-600)}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:'Kanit','Noto Sans Thai',system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial; line-height:1.55}
 
-#scrollProgress{position:fixed;left:0;top:0;height:3px;background:linear-gradient(90deg,#f59e0b,#ffb703);z-index:2000;width:0}
+/* Links / Buttons */
+a{color:var(--ink);text-decoration:none}
+a:hover{opacity:.8}
+.btn{border-radius:999px !important}
+.btn-brand{background:var(--ink); color:#fff; border:none; box-shadow:var(--shadow-soft)}
+.btn-brand:hover{opacity:.9}
+.btn-ghost{background:transparent; border:1px solid var(--stroke); color:var(--ink)}
+.btn-ghost:hover{border-color:#d6d0c4}
 
-.btn-brand{position:relative;overflow:hidden;background:linear-gradient(180deg,#fbbf24,#f59e0b);color:#111827;border:none;box-shadow:var(--shadow)}
-.btn-brand:hover{background:linear-gradient(180deg,#f59e0b,#d97706);color:#fff}
-.btn .ripple{position:absolute;width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.6);transform:translate(-50%,-50%);animation:rip .6s ease-out;pointer-events:none}
-@keyframes rip{from{transform:translate(-50%,-50%) scale(1);opacity:.6}to{transform:translate(-50%,-50%) scale(20);opacity:0}}
+/* Navbar */
+.navbar{backdrop-filter:saturate(160%) blur(14px); background:rgba(255,255,255,.8) !important; box-shadow: var(--shadow-soft)}
+.navbar-brand span.logo-dot{height:8px;width:8px;display:inline-block;border-radius:50%;background:var(--brand-2);margin-left:6px}
 
-.navbar{backdrop-filter:saturate(180%) blur(14px);background:rgba(255,255,255,.7);box-shadow:0 6px 24px rgba(0,0,0,.06)}
-.navbar-brand span.logo-dot{height:10px;width:10px;display:inline-block;border-radius:50%;background:var(--brand);margin-left:6px}
+/* Hero */
+.hero{position:relative; overflow:hidden; border-radius: calc(var(--radius) + 8px);
+  padding: clamp(2rem, 4vw, 4rem);
+  background: radial-gradient(700px 300px at 20% 10%, #fff4dd 0%, transparent 60%),
+              radial-gradient(600px 260px at 85% -10%, #fff0cc 0%, transparent 60%),
+              var(--surface);
+  box-shadow: var(--shadow-soft);
+}
+.kicker{display:inline-block; padding:.35rem .7rem; border:1px solid var(--stroke); border-radius:999px; font-weight:600; color:#7a6d57; background:#fff}
 
-.card{border:0;background:var(--card);border-radius:1.1rem;box-shadow:var(--shadow)}
-.card.hover-lift{transition:transform .28s ease, box-shadow .28s ease}
-.card.hover-lift:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(0,0,0,.12)}
-.card--gb{border:1px solid transparent;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(45deg,#ffe3a3,#f59e0b,#ffb703) border-box}
+/* Cards */
+.card{border:1px solid var(--stroke); border-radius: var(--radius); box-shadow:none; background:var(--surface)}
+.card.hover{transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease}
+.card.hover:hover{transform:translateY(-4px); box-shadow: var(--shadow-soft); border-color:#e3dccf}
 
-.hero{position:relative;overflow:hidden;border-radius:1.5rem;padding:clamp(2rem,4vw,4rem);background:linear-gradient(180deg,#fff7ed 0%,#faf6ef 100%);box-shadow:var(--shadow)}
-.hero::before{content:"";position:absolute;inset:-20% -10% 40% -10%;background:
-  radial-gradient(1000px 400px at 20% 30%, #ffe8b3 0%, rgba(0,0,0,0) 70%),
-  radial-gradient(800px 300px at 80% 20%, #ffd79a 0%, rgba(0,0,0,0) 70%);
-opacity:.6}
-.hero > *{position:relative;z-index:1}
+/* Image */
+img{border-radius: calc(var(--radius) - 4px)}
 
-.list-check li{padding-left:1.5rem;position:relative;margin:.5rem 0}
-.list-check li::before{content:"✓";position:absolute;left:0;top:0;color:var(--brand);font-weight:700}
+/* Section spacing */
+.section{margin: clamp(2rem, 6vw, 4rem) 0}
 
-img{border-radius:.9rem}
-.tilt{will-change:transform;transform-style:preserve-3d}
+/* Float LINE button (minimal) */
+.float-line{position:fixed; right:16px; bottom:16px; z-index:1000}
+.float-line.btn{border:1px solid var(--stroke); background:#fff; color:var(--ink)}
 
-.float-line{position:fixed;right:16px;bottom:16px;z-index:1000}
-.float-line::after{content:"";position:absolute;inset:-6px;border-radius:999px;border:2px solid rgba(245,158,11,.5);animation:pulse 1.8s ease-out infinite}
-@keyframes pulse{0%{transform:scale(.9);opacity:.75}100%{transform:scale(1.4);opacity:0}}
+/* Scroll progress */
+#scrollProgress{position:fixed; left:0; top:0; height:2px; background:linear-gradient(90deg, #111827, #f59e0b); z-index:2000; width:0}
 
-[data-reveal]{opacity:0;transform:translateY(10px);transition:.6s ease}
-.revealed{opacity:1 !important;transform:none !important}
+/* Reveal */
+[data-reveal]{opacity:0; transform: translateY(8px); transition: .5s ease}
+.revealed{opacity:1 !important; transform:none !important}
 
+/* Chips */
+.chips{display:flex; gap:.5rem; flex-wrap:wrap}
+.chip{border:1px solid var(--stroke); padding:.45rem .9rem; border-radius:999px; cursor:pointer; user-select:none; font-weight:600; color:#5b5b5b; background:#fff}
+.chip.active{border-color:#111827; color:#111827}
+
+/* Skeleton */
+.skel{border-radius:12px; background: linear-gradient(90deg, #f3eee6 25%, #efe9e0 37%, #f3eee6 63%); background-size:400% 100%; animation:skel 1.2s infinite linear}
+@keyframes skel{0%{background-position:100% 0}100%{background-position:0 0}}
+
+/* Lists */
+.list-quiet{color:var(--muted)}
+.list-quiet li{margin:.35rem 0}
+
+/* Footer */
 footer{color:var(--muted)}
