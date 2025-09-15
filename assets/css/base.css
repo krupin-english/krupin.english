@@ -1,97 +1,64 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&family=Noto+Sans+Thai:wght@300;400;600&display=swap');
-
+/* Minimal Accent Suite — #F38F80 */
 :root{
+  /* Core tokens */
   --bg:#faf8f3;
   --surface:#ffffff;
   --ink:#0f1220;
   --muted:#6b7280;
-  --accent:#f59e0b;
   --stroke:#ece6db;
-  --radius:16px;
+
+  /* Accent palette (salmon) */
+  --accent:#F38F80;      /* soft */
+  --accent-50:#FFF4F1;   /* ultra‑light */
+  --accent-100:#FCE1DD;  /* light tint */
+  --accent-600:#CB2B13;  /* deep (AA with white text) */
+  --accent-700:#A92410;  /* deeper for hovers */
+
+  /* Shadows */
   --shadow-soft: 0 2px 0 rgba(17,24,39,.02), 0 10px 26px rgba(17,24,39,.06);
 }
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg:#0b0d11; --surface:#0f1218; --ink:#e5e7eb; --muted:#9ca3af; --accent:#f59e0b; --stroke:#1b1f29;
-    --shadow-soft: 0 1px 0 rgba(255,255,255,.02), 0 10px 26px rgba(0,0,0,.45);
-  }
-}
+
+/* Dark theme variables keep the same accent to preserve brand */
 body.theme-dark{
-  --bg:#0b0d11; --surface:#0f1218; --ink:#e5e7eb; --muted:#9ca3af; --accent:#f59e0b; --stroke:#1b1f29;
-}
-body.theme-light{
-  --bg:#faf8f3; --surface:#ffffff; --ink:#0f1220; --muted:#6b7280; --accent:#f59e0b; --stroke:#ece6db;
+  --bg:#0b0d11; --surface:#0f1218; --ink:#e5e7eb; --muted:#9ca3af; --stroke:#1b1f29;
+  --accent:#F38F80; --accent-50:#3a2826; --accent-100:#53312d; --accent-600:#CB2B13; --accent-700:#A92410;
 }
 
-*{box-sizing:border-box}
-html,body{background:var(--bg);color:var(--ink)}
-body{font-family:'Kanit','Noto Sans Thai',system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial; line-height:1.55}
+/* --- Global elements (override after Bootstrap) --- */
 a{color:inherit;text-decoration:none}
-a:hover{opacity:.9}
+a:hover{color:var(--accent-600)}
 
-/* Grid background */
-.bg-grid{
-  background-image:
-    linear-gradient(to bottom, rgba(17,24,39,.04) 1px, transparent 1px),
-    linear-gradient(to right, rgba(17,24,39,.04) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
+.navbar-brand span.logo-dot{height:8px;width:8px;display:inline-block;border-radius:50%;background:var(--accent-600);margin-left:6px}
 
-.navbar{backdrop-filter:saturate(160%) blur(12px); background:rgba(255,255,255,.75) !important; box-shadow: var(--shadow-soft); border-bottom:1px solid var(--stroke)}
-body.theme-dark .navbar{background:rgba(15,18,24,.65) !important}
+#scrollProgress{position:fixed;left:0;top:0;height:2px;background:linear-gradient(90deg,var(--accent-600),var(--accent));z-index:2000;width:0}
 
+/* Buttons */
 .btn{border-radius:999px !important}
-.btn-brand{background:var(--ink); color:#fff; border:1px solid var(--ink)}
-.btn-brand:hover{filter:brightness(.92)}
+.btn-brand{background:var(--accent-600); color:#fff; border:1px solid var(--accent-600); box-shadow:var(--shadow-soft)}
+.btn-brand:hover{background:var(--accent-700); border-color:var(--accent-700)}
 .btn-ghost{background:transparent; border:1px solid var(--stroke); color:var(--ink)}
-.btn-ghost:hover{border-color:#d6d0c4}
-.btn-square{width:36px; height:36px; display:flex; align-items:center; justify-content:center; padding:0}
+.btn-ghost:hover{border-color:var(--accent-600); color:var(--ink)}
+
+/* Chips / badges / highlights */
+.chip{border:1px solid var(--stroke); background:var(--surface); color:#5b5b5b}
+.chip.active{border-color:var(--accent-600); background:var(--accent-50); color:var(--ink)}
+.badge.text-bg-light{background:var(--accent-50) !important; color:var(--accent-600) !important; border:1px solid var(--accent-100)}
 
 /* Hero */
-.hero{position:relative; overflow:hidden; border-radius: calc(var(--radius) + 8px);
-  padding: clamp(2rem, 4vw, 4rem);
-  background: radial-gradient(700px 300px at 20% 10%, color-mix(in oklab, var(--accent) 18%, transparent) 0%, transparent 60%),
-              radial-gradient(600px 260px at 85% -10%, color-mix(in oklab, var(--accent) 16%, transparent) 0%, transparent 60%),
-              var(--surface);
-  box-shadow: var(--shadow-soft);
+.hero{background:
+  radial-gradient(700px 300px at 20% 10%, color-mix(in oklab, var(--accent) 18%, transparent) 0%, transparent 60%),
+  radial-gradient(600px 260px at 85% -10%, color-mix(in oklab, var(--accent) 16%, transparent) 0%, transparent 60%),
+  var(--surface);
 }
-.kicker{display:inline-block; padding:.35rem .7rem; border:1px solid var(--stroke); border-radius:999px; font-weight:600; color:#7a6d57; background:#fff}
-body.theme-dark .kicker{background:#0f1218; color:#c7b79a; border-color:#2a2f3b}
+.kicker{border:1px solid var(--accent-100); background:var(--accent-50); color:var(--accent-600)}
 
-/* Orbs */
-.orbs{position:absolute; inset:0; pointer-events:none; z-index:0}
-.orb{position:absolute; width:420px; height:420px; border-radius:999px; filter: blur(40px); opacity:.35}
-.orb-1{left:-120px; top:-60px; background: radial-gradient(circle at 30% 30%, #ffedcc, transparent 60%)}
-.orb-2{right:-160px; top:-100px; background: radial-gradient(circle at 70% 30%, #ffe1a8, transparent 60%)}
-.hero > *{position:relative; z-index:1}
+/* List check */
+.list-quiet li::marker, .list-check li::before{color:var(--accent-600) !important}
 
-.card{border:1px solid var(--stroke); border-radius: var(--radius); box-shadow:none; background:var(--surface)}
-.card.hover{transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease}
-.card.hover:hover{transform:translateY(-4px); box-shadow: var(--shadow-soft); border-color:color-mix(in oklab, var(--stroke) 60%, var(--ink) 10%)}
-
-img{border-radius: calc(var(--radius) - 4px)}
-.section{margin: clamp(2rem, 6vw, 4rem) 0}
-
-#scrollProgress{position:fixed; left:0; top:0; height:2px; background:linear-gradient(90deg, var(--ink), var(--accent)); z-index:2000; width:0}
-
-@media (prefers-reduced-motion: no-preference){
-  [data-reveal]{opacity:0; transform: translateY(8px); transition: .55s ease}
-  .revealed{opacity:1 !important; transform:none !important}
+/* Focus visible — accessible */
+:where(a,button,.btn,input,select,textarea,[role="button"]):focus-visible{
+  outline:2px solid color-mix(in oklab, var(--accent-600) 50%, transparent);
+  outline-offset:2px;
+  box-shadow:0 0 0 6px color-mix(in oklab, var(--accent-600) 12%, transparent);
 }
-
-/* Chips + search */
-.chips{display:flex; gap:.5rem; flex-wrap:wrap}
-.chip{border:1px solid var(--stroke); padding:.45rem .9rem; border-radius:999px; cursor:pointer; user-select:none; font-weight:600; color:#5b5b5b; background:var(--surface)}
-.chip.active{border-color:var(--ink); color:var(--ink)}
-#courseSearch, #shopSearch{border-radius:999px; padding:.6rem 1rem; border:1px solid var(--stroke); background:var(--surface); color:var(--ink)}
-
-.stats{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem}
-@media(min-width:768px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
-.stat{border:1px solid var(--stroke); border-radius:14px; padding:1rem; background:var(--surface); text-align:center}
-.stat .num{font-size: clamp(1.4rem, 2.5vw, 2.2rem); font-weight:700}
-
-.testi{display:flex; gap:1rem; overflow:auto; scroll-snap-type:x mandatory; padding-bottom:.5rem}
-.testi .item{scroll-snap-align:start; min-width: 280px; flex: 0 0 280px; border:1px solid var(--stroke); border-radius:14px; padding:1rem; background:var(--surface)}
-
-footer{color:var(--muted)}
