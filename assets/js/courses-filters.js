@@ -1,3 +1,3 @@
 
-import { setupCourseChips } from './ux.js';
-setupCourseChips();
+import { setupCourseTools } from './ui.js';
+setupCourseTools();
