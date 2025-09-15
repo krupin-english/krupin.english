@@ -9,11 +9,12 @@
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="icon" href="assets/img/icon-192.png" sizes="192x192"/>
 <link rel="apple-touch-icon" href="assets/img/icon-192.png"/>
-<meta name="theme-color" content="#f59e0b"/>
+<meta name="theme-color" content="#F38F80"/>
 
 <title>รายละเอียดคอร์ส — KruPin English</title>
 </head>
-<body>
+<body class="bg-grid">
+<div id="scrollProgress"></div>
 
 <nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
@@ -29,9 +30,10 @@
         <li class="nav-item"><a class="nav-link" href="article.html?id=welcome">บทความ</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">เกี่ยวกับเรา</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">ติดต่อ</a></li>
+        <li class="nav-item"><a class="nav-link" href="dashboard.html">แดชบอร์ด</a></li>
         <li class="nav-item"><a class="nav-link" href="admin.html">หลังบ้าน</a></li>
       </ul>
-      <div class="d-flex gap-2">
+      <div class="d-flex gap-2 align-items-center"><button class="btn btn-sm btn-ghost btn-square" id="themeToggle" aria-label="Toggle theme">◐</button>
         <a class="btn btn-sm btn-outline-dark" href="login.html">เข้าสู่ระบบ</a>
       </div>
     </div>
@@ -114,6 +116,13 @@ const id = params.get('id');
     }
   });
 })();
+</script>
+<script type="module" src="assets/js/ui.js"></script>
+
+<script type="module">
+  import { addCourseJSONLD } from './assets/js/ui.js';
+  const id = new URLSearchParams(location.search).get('id');
+  addCourseJSONLD(id);
 </script>
 </body>
 </html>

@@ -9,11 +9,12 @@
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="icon" href="assets/img/icon-192.png" sizes="192x192"/>
 <link rel="apple-touch-icon" href="assets/img/icon-192.png"/>
-<meta name="theme-color" content="#f59e0b"/>
+<meta name="theme-color" content="#F38F80"/>
 
 <title>คอร์สอังกฤษเข้าใจง่าย — KruPin English</title>
 </head>
-<body>
+<body class="bg-grid">
+<div id="scrollProgress"></div>
 
 <nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
@@ -29,9 +30,10 @@
         <li class="nav-item"><a class="nav-link" href="article.html?id=welcome">บทความ</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">เกี่ยวกับเรา</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">ติดต่อ</a></li>
+        <li class="nav-item"><a class="nav-link" href="dashboard.html">แดชบอร์ด</a></li>
         <li class="nav-item"><a class="nav-link" href="admin.html">หลังบ้าน</a></li>
       </ul>
-      <div class="d-flex gap-2">
+      <div class="d-flex gap-2 align-items-center"><button class="btn btn-sm btn-ghost btn-square" id="themeToggle" aria-label="Toggle theme">◐</button>
         <a class="btn btn-sm btn-outline-dark" href="login.html">เข้าสู่ระบบ</a>
       </div>
     </div>
@@ -39,13 +41,13 @@
 </nav>
 
 <main class="container my-4">
-  <section class="hero mb-4">
+  <section class="hero mb-4"><div class="orbs"><span class="orb orb-1"></span><span class="orb orb-2"></span></div>
     <div class="row align-items-center g-4">
       <div class="col-lg-6">
         <span class="badge-cream">เรียนภาษาอังกฤษอย่างมั่นใจ</span>
         <h1 class="display-5 mt-2" id="heroTitle">พูดอังกฤษอย่างมั่นใจ เริ่มที่นี่</h1>
         <p class="lead text-muted" id="heroDesc">คอร์สที่เข้าใจง่าย ใช้ได้จริง พร้อมโค้ชคอยดูแล</p>
-        <div class="d-flex gap-2">
+        <div class="d-flex gap-2 align-items-center"><button class="btn btn-sm btn-ghost btn-square" id="themeToggle" aria-label="Toggle theme">◐</button>
           <a class="btn btn-brand btn-lg" href="#" id="lineBtn">ทัก LINE เพื่อเริ่มต้น</a>
           <a class="btn btn-outline-dark btn-lg" href="courses.html">ดูคอร์สทั้งหมด</a>
         </div>
@@ -93,5 +95,6 @@ document.getElementById('lineBtn').href = LINE_LINK;
 document.getElementById('lineBtn2').href = LINE_LINK;
 </script>
 <script type="module" src="assets/js/main.js"></script>
+<script type="module" src="assets/js/ui.js"></script>
 </body>
 </html>

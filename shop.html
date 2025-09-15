@@ -9,11 +9,12 @@
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="icon" href="assets/img/icon-192.png" sizes="192x192"/>
 <link rel="apple-touch-icon" href="assets/img/icon-192.png"/>
-<meta name="theme-color" content="#f59e0b"/>
+<meta name="theme-color" content="#F38F80"/>
 
 <title>ร้านค้าสินค้าเสริม — KruPin English</title>
 </head>
-<body>
+<body class="bg-grid">
+<div id="scrollProgress"></div>
 
 <nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
@@ -29,10 +30,11 @@
         <li class="nav-item"><a class="nav-link" href="article.html?id=welcome">บทความ</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">เกี่ยวกับเรา</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">ติดต่อ</a></li>
+        <li class="nav-item"><a class="nav-link" href="dashboard.html">แดชบอร์ด</a></li>
         <li class="nav-item"><a class="nav-link" href="admin.html">หลังบ้าน</a></li>
       </ul>
-      <div class="d-flex gap-2">
-        <a class="btn btn-sm btn-outline-dark" href="login.html">เข้าสู่ระบบ</a>
+      <div class="d-flex gap-2 align-items-center"><button class="btn btn-sm btn-ghost btn-square" id="themeToggle" aria-label="Toggle theme">◐</button>
+        <a class="btn btn-sm btn-ghost" href="login.html">เข้าสู่ระบบ</a>
       </div>
     </div>
   </div>
@@ -40,7 +42,7 @@
 
 <main class="container my-4">
   <h1>ร้านค้า</h1>
-  <p class="text-muted">สั่งซื้อผ่าน LINE ได้เลย</p>
+  <p class="text-muted">สั่งซื้อผ่าน LINE ได้เลย</p><div class="mb-3"><input class="form-control" id="shopSearch" placeholder="ค้นหาสินค้า..."></div>
   <div class="row row-cols-1 row-cols-md-3 g-3" id="shopList"></div>
 </main>
 
@@ -82,5 +84,7 @@ const list = document.getElementById('shopList');
   });
 })();
 </script>
+<script type="module" src="assets/js/ui.js"></script>
+<script type="module" src="assets/js/shop-filters.js"></script>
 </body>
 </html>

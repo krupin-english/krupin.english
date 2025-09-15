@@ -9,11 +9,12 @@
 <link rel="manifest" href="manifest.webmanifest"/>
 <link rel="icon" href="assets/img/icon-192.png" sizes="192x192"/>
 <link rel="apple-touch-icon" href="assets/img/icon-192.png"/>
-<meta name="theme-color" content="#f59e0b"/>
+<meta name="theme-color" content="#F38F80"/>
 
 <title>คอร์สเรียนทั้งหมด — KruPin English</title>
 </head>
-<body>
+<body class="bg-grid">
+<div id="scrollProgress"></div>
 
 <nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
@@ -29,10 +30,11 @@
         <li class="nav-item"><a class="nav-link" href="article.html?id=welcome">บทความ</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">เกี่ยวกับเรา</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.html">ติดต่อ</a></li>
+        <li class="nav-item"><a class="nav-link" href="dashboard.html">แดชบอร์ด</a></li>
         <li class="nav-item"><a class="nav-link" href="admin.html">หลังบ้าน</a></li>
       </ul>
-      <div class="d-flex gap-2">
-        <a class="btn btn-sm btn-outline-dark" href="login.html">เข้าสู่ระบบ</a>
+      <div class="d-flex gap-2 align-items-center"><button class="btn btn-sm btn-ghost btn-square" id="themeToggle" aria-label="Toggle theme">◐</button>
+        <a class="btn btn-sm btn-ghost" href="login.html">เข้าสู่ระบบ</a>
       </div>
     </div>
   </div>
@@ -45,7 +47,7 @@
       <p class="text-muted">เลือกคอร์สที่เหมาะกับคุณ</p>
     </div>
   </div>
-  <div class="row row-cols-1 row-cols-md-3 g-3 mt-2" id="courseList"></div>
+  <div class="d-flex flex-wrap gap-2 align-items-center mb-3"><div class="flex-grow-1"><input class="form-control" id="courseSearch" placeholder="ค้นหาคอร์ส..."></div><div class="btn-group" id="sortBar" role="group" aria-label="Sort"><button class="btn btn-ghost" data-sort="popular" aria-pressed="true">แนะนำ</button><button class="btn btn-ghost" data-sort="price-asc">ราคาต่ำ</button><button class="btn btn-ghost" data-sort="price-desc">ราคาสูง</button></div></div><div class="mb-3 chips" id="filterChips"><span class="chip active" data-level="all">ทั้งหมด</span><span class="chip" data-level="A1">A1</span><span class="chip" data-level="A2">A2</span><span class="chip" data-level="B1">B1</span><span class="chip" data-level="B2">B2</span></div><div class="row row-cols-1 row-cols-md-3 g-3 mt-2" id="courseList"></div>
 </main>
 
 <footer class="py-4 mt-5">
@@ -80,16 +82,18 @@ import { loadJSON, LINE_LINK, fmtPrice } from './assets/js/utils.js';
           <p class="text-muted">${c.short || ''}</p>
           <div class="d-flex justify-content-between align-items-center">
             <span class="fw-bold">${fmtPrice(c.price || 0)}</span>
-            <div class="d-flex gap-2">
-              <a class="btn btn-sm btn-outline-dark" href="course.html?id=${c.id}">ดูรายละเอียด</a>
+            <div class="d-flex gap-2 align-items-center"><button class="btn btn-sm btn-ghost btn-square" id="themeToggle" aria-label="Toggle theme">◐</button>
+              <a class="btn btn-sm btn-ghost" href="course.html?id=${c.id}">ดูรายละเอียด</a>
               <a class="btn btn-sm btn-brand" href="${LINE_LINK}" target="_blank">ทัก LINE</a>
             </div>
           </div>
         </div>
       </div>`;
-    list.appendChild(el);
+    el.dataset.level = (c.level||''); list.appendChild(el);
   });
 })();
 </script>
+<script type="module" src="assets/js/ui.js"></script>
+<script type="module" src="assets/js/courses-filters.js"></script>
 </body>
 </html>
