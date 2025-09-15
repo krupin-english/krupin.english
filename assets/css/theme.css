@@ -1,9 +1,6 @@
 
-.navbar{background:#fff;box-shadow:var(--shadow)}
 .nav-link{color:#374151 !important}
 .nav-link:hover{color:var(--brand-600) !important}
-.dropdown-menu{border-radius:.75rem;border:0;box-shadow:var(--shadow)}
+.dropdown-menu{border-radius:.75rem;border:0;box-shadow:0 12px 30px rgba(0,0,0,.12)}
 footer a{color:var(--muted)}
 footer a:hover{color:var(--brand-600)}
-.list-check li{padding-left:1.5rem;position:relative;margin:.5rem 0}
-.list-check li::before{content:"✓";position:absolute;left:0;top:0;color:var(--brand);font-weight:700}
