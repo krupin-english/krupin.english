@@ -1,3 +1,2 @@
 
-import { setupCourseTools } from './ui.js';
-setupCourseTools();
+import { setupCourseTools } from './ui.js'; setupCourseTools();
