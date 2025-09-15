@@ -1,0 +1,69 @@
+{
+  "list": [
+    {
+      "id": "eng-a1",
+      "title": "English A1 พื้นฐาน",
+      "level": "A1",
+      "price": 1990,
+      "short": "ปรับพื้นฐานแกรมมาร์+คำศัพท์ ใช้ได้ทันทีในชีวิตประจำวัน",
+      "desc": "เริ่มจากศูนย์ ฝึกพูด-ฟังด้วยบทสนทนาสั้นๆ + แบบฝึกหัด",
+      "cover": "https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1400&auto=format&fit=crop",
+      "outline": [
+        "แนะนำตัว",
+        "ถาม-ตอบข้อมูลส่วนตัว",
+        "บอกทิศทาง",
+        "สั่งอาหาร",
+        "พูดคุยงานอดิเรก"
+      ],
+      "preview": "https://www.youtube.com/embed/5MgBikgcWnY",
+      "lessons": [
+        "บทที่ 1: Greetings",
+        "บทที่ 2: Small talk",
+        "บทที่ 3: Asking for help"
+      ]
+    },
+    {
+      "id": "eng-conversation",
+      "title": "สื่อสารคล่อง พูดได้จริง (Conversation)",
+      "level": "A2-B1",
+      "price": 2990,
+      "short": "ฝึกพูดโต้ตอบสถานการณ์จริง เน้นสำเนียงชัด",
+      "desc": "โฟกัส Speaking/Listening ด้วย Role-play และภารกิจ",
+      "cover": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1400&auto=format&fit=crop",
+      "outline": [
+        "สัมภาษณ์งาน",
+        "คุยธุรกิจ",
+        "ท่องเที่ยว",
+        "โรงแรม",
+        "ร้านอาหาร"
+      ],
+      "preview": "https://www.youtube.com/embed/VvCytJvd4H0",
+      "lessons": [
+        "บทที่ 1: Workplace talk",
+        "บทที่ 2: At the hotel",
+        "บทที่ 3: Travel tips"
+      ]
+    },
+    {
+      "id": "ielts-boost",
+      "title": "IELTS Boost พุ่งคะแนน",
+      "level": "B1-B2",
+      "price": 4990,
+      "short": "เทคนิคทำข้อสอบ + ฝึกพาร์ทละเอียดยิบ",
+      "desc": "เจาะข้อสอบ Reading/Listening/Speaking/Writing พร้อมเทคนิคจับเวลา",
+      "cover": "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1400&auto=format&fit=crop",
+      "outline": [
+        "Reading Skimming",
+        "Listening traps",
+        "Speaking structure",
+        "Writing Task 1/2"
+      ],
+      "preview": "https://www.youtube.com/embed/6stlCkUDG_s",
+      "lessons": [
+        "บทที่ 1: Reading hacks",
+        "บทที่ 2: Listening traps",
+        "บทที่ 3: Writing templates"
+      ]
+    }
+  ]
+}
