@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="assets/css/base.css"/>
+<link rel="stylesheet" href="assets/css/theme.css"/>
+<link rel="manifest" href="manifest.webmanifest"/>
+<link rel="icon" href="assets/img/icon-192.png" sizes="192x192"/>
+<link rel="apple-touch-icon" href="assets/img/icon-192.png"/>
+<meta name="theme-color" content="#f59e0b"/>
+
+<title>หลังบ้าน — KruPin English</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html">KruPin English <span class="logo-dot"></span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="index.html">หน้าแรก</a></li>
+        <li class="nav-item"><a class="nav-link" href="courses.html">คอร์สเรียน</a></li>
+        <li class="nav-item"><a class="nav-link" href="shop.html">ร้านค้า</a></li>
+        <li class="nav-item"><a class="nav-link" href="article.html?id=welcome">บทความ</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">เกี่ยวกับเรา</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">ติดต่อ</a></li>
+        <li class="nav-item"><a class="nav-link" href="admin.html">หลังบ้าน</a></li>
+      </ul>
+      <div class="d-flex gap-2">
+        <a class="btn btn-sm btn-outline-dark" href="login.html">เข้าสู่ระบบ</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main class="container my-4">
+  <h1 class="mb-3">หลังบ้าน</h1>
+  <p class="text-muted">แก้ไขข้อมูลแล้วกด Export ไฟล์ JSON เพื่อนำไปอัปขึ้น GitHub</p>
+
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#p-courses" type="button">คอร์ส</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" data-bs-toggle="pill" data-bs-target="#p-access" type="button">สิทธิ์เข้าถึง</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" data-bs-toggle="pill" data-bs-target="#p-seo" type="button">SEO</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" data-bs-toggle="pill" data-bs-target="#p-export" type="button">เผยแพร่ / Export</button>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane fade show active" id="p-courses">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h5 class="m-0">รายการคอร์ส</h5>
+        <button class="btn btn-sm btn-dark" id="btnAddCourse">เพิ่มคอร์ส</button>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-sm align-middle">
+          <thead><tr><th>id</th><th>ชื่อคอร์ส</th><th>ระดับ</th><th>ราคา</th><th>รูปปก (URL)</th><th class="text-end">ลบ</th></tr></thead>
+          <tbody id="coursesTbody"></tbody>
+        </table>
+      </div>
+      <button class="btn btn-outline-dark" id="btnExportCourses">Export courses.json</button>
+    </div>
+
+    <div class="tab-pane fade" id="p-access">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">เลือกคอร์ส</label>
+          <select class="form-select" id="accessCourse"></select>
+          <ul class="list-group mt-3" id="accessList"></ul>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">เพิ่มสิทธิ์ด้วยอีเมล</label>
+          <div class="input-group">
+            <input class="form-control" placeholder="email@example.com" id="emailToHash">
+            <button class="btn btn-dark" id="btnAddHash">เพิ่ม</button>
+          </div>
+          <div class="small text-muted mt-2">ระบบจะคำนวณแฮช SHA-256 ของอีเมลเพื่อเก็บใน access.json</div>
+        </div>
+      </div>
+      <button class="btn btn-outline-dark mt-3" id="btnExportAccess">Export access.json</button>
+    </div>
+
+    <div class="tab-pane fade" id="p-seo">
+      <p>ไฟล์ SEO เบื้องต้นอยู่ที่ <code>seo/seo.json</code> (ตั้งค่า title/description/ภาพแชร์ ต่อหน้า)</p>
+      <button class="btn btn-outline-dark" id="btnExportSEO">Export seo.json</button>
+    </div>
+
+    <div class="tab-pane fade" id="p-export">
+      <p>แนะนำให้ Export ไฟล์ทั้งหมด แล้วนำไปอัปทับใน GitHub</p>
+      <button class="btn btn-brand" id="btnExportAll">Export ทั้งหมด (.zip)</button>
+      <div class="small text-muted mt-2">ไฟล์ที่รวม: site-data.json, courses.json, access.json, seo.json</div>
+    </div>
+  </div>
+</main>
+
+<footer class="py-4 mt-5">
+  <div class="container text-center small">
+    © <span id="y"></span> KruPin English • ทำด้วยใจบน GitHub Pages
+  </div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+<script src="assets/js/utils.js" type="module"></script>
+<script src="assets/js/seo.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('service-worker.js'); }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+<script type="module" src="assets/js/admin.js"></script>
+</body>
+</html>
